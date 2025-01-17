@@ -7,7 +7,7 @@ KARGO TAKİP OTOMASYONU*/
 #include <cstring>
 using namespace std;
 #include <locale>
-// Kargo Bilgileri için Struct Tanımı
+
 struct Kargo {
     int id;
     char gonderici[50];
@@ -16,7 +16,6 @@ struct Kargo {
     char durum[20];
 };
 
-// Fonksiyon Prototipleri
 void menu();
 void yeniKargoEkle();
 void kargoAra();
@@ -45,7 +44,7 @@ int main() {
     return 0;
 }
 
-// Menü Fonksiyonu
+
 void menu() {
     cout << "\n=== Kargo Takip Otomasyonu ===\n";
     cout << "1. Yeni Kargo Kaydı Ekle\n";
@@ -56,7 +55,7 @@ void menu() {
     cout << "6. Çıkış\n";
 }
 
-// Yeni Kargo Kaydı Ekleme Fonksiyonu
+
 void yeniKargoEkle() {
     ofstream dosya("kargo.dat", ios::binary | ios::app);
     Kargo yeniKargo;
@@ -82,7 +81,7 @@ void yeniKargoEkle() {
     cout << "Kargo kaydı başarıyla eklendi!\n";
 }
 
-// Kargo Bilgisi Arama Fonksiyonu
+
 void kargoAra() {
 	
     ifstream dosya("kargo.dat", ios::binary);
@@ -93,7 +92,7 @@ void kargoAra() {
 
     int arananID;
     cout << "Aramak istediğiniz Kargo ID: ";
-    cout<<"//------------------------------------------------------------------------"<<endl;
+    
     cin >> arananID;
 
     Kargo okunan;
@@ -118,9 +117,9 @@ void kargoAra() {
     }
 }
 
-// Kargo Bilgisi Güncelleme Fonksiyonu
+
 void kargoGuncelle() {
-	cout<<"//------------------------------------------------------------------------"<<endl;
+	
     fstream dosya("kargo.dat", ios::binary | ios::in | ios::out);
     if (!dosya) {
         cout << "Dosya bulunamadı!\n";
@@ -167,9 +166,8 @@ void kargoGuncelle() {
     }
 }
 
-// Kargo Kaydı Silme Fonksiyonu
+
 void kargoSil() {
-	cout<<"//----------------------------------------------------------------------"<<endl;
     ifstream dosya("kargo.dat", ios::binary);
     ofstream geciciDosya("gecici.dat", ios::binary);
 
@@ -205,9 +203,7 @@ void kargoSil() {
     }
 }
 
-// Tüm Kargoları Listeleme Fonksiyonu
 void kargolariListele() {
-	cout<<"//----------------------------------------------------------------------------";
 
     ifstream dosya("kargo.dat", ios::binary);
     if (!dosya) {
